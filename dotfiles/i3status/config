@@ -1,0 +1,63 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 20
+}
+
+order += "disk /"
+order += "wireless wlp4s0"
+order += "battery 0"
+order += "load"
+order += "tztime local"
+order += "tztime pst"
+order += "tztime est"
+wireless wlp4s0 {
+        format_up = "W: (%quality at %essid, %bitrate) %ip"
+        format_down = "W: down"
+}
+
+ethernet eth0 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "E"
+        format_down = "E"
+}
+
+battery 0 {
+        format = "%status %percentage %remaining"
+}
+
+run_watch DHCP {
+        pidfile = "/var/run/dhclient*.pid"
+}
+
+run_watch VPN {
+        pidfile = "/var/run/vpnc/pid"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}
+
+tztime pst {
+	timezone = "US/Pacific"
+	format = "PST: %H:%M"
+}
+
+tztime est {
+	timezone = "US/Eastern"
+	format = "EST: %H:%M"
+}
+load {
+        format = "%1min"
+}
+
+disk "/" {
+        format = "%free"
+}

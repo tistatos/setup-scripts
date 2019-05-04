@@ -35,8 +35,11 @@ curl https://sh.rustup.rs -sSf | sh
 
 #get dot files
 #TODO: i3
-#TODO: vim
-#TODO: nvim
+mkdir -p ~/.i3
+ln s $PWD/dotfiles/i3/config ~/.i3/config
+ln s $PWD/dotfiles/vim/.vimrc ~/.vimrc
+mkdir -p ~/.config/nvim
+ln s $PWD/dotfiles/nvim/init.vim ~/.config/nvim
 #TODO: zsh
 #TODO: global git
 
@@ -45,7 +48,7 @@ gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703
 curl -sSL https://get.rvm.io | bash -s stable --rails
 
 #install vundle
-#TODO
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 #ycm install
 #TODO
