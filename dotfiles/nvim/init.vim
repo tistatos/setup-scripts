@@ -22,11 +22,11 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " Setup python
-let g:python3_host_prog='C:\python37\python.exe'
-let g:python_host_prog='C:\Python27\python.exe'
+let g:python3_host_prog='/usr/bin/python3'
+let g:python_host_prog='/usr/bin/python2'
 
 " set the runtime path to include Vundle and initialize
-let &rtp = &rtp . ',' . 'c:\\Users\\Erik\\.vim\\bundle\\Vundle.vim'
+let &rtp = &rtp . ',' . '~/.vim/bundle/Vundle.vim'
 
 call vundle#begin()
 

@@ -3,7 +3,7 @@
 #used for python
 sudo add-apt-repository ppa:deadsnakes/ppa -y
 #update and upgrade
-sudo apt-get update && sudo apt-get upgrade -y	
+sudo apt-get update && sudo apt-get upgrade -y
 
 #install packages
 sudo apt-get install -y \
@@ -11,6 +11,7 @@ sudo apt-get install -y \
 	compton \
 	cmake \
 	dmenu \
+	feh \
 	firefox \
 	gdb \
 	git \
@@ -23,6 +24,7 @@ sudo apt-get install -y \
 	ranger \
 	rofi \
 	thunar \
+	xfce4-volumed \
 	zsh \
 
 #TODO: screensaver
@@ -34,12 +36,15 @@ sudo apt-get install -y \
 curl https://sh.rustup.rs -sSf | sh
 
 #get dot files
-#TODO: i3
 mkdir -p ~/.i3
-ln s $PWD/dotfiles/i3/config ~/.i3/config
-ln s $PWD/dotfiles/vim/.vimrc ~/.vimrc
+ln -s $PWD/dotfiles/i3/config ~/.i3/config
+
+ln -s $PWD/dotfiles/vim/.vimrc ~/.vimrc
+
 mkdir -p ~/.config/nvim
-ln s $PWD/dotfiles/nvim/init.vim ~/.config/nvim
+ln -s $PWD/dotfiles/nvim/init.vim ~/.config/nvim
+
+ln -s $PWD/dotfiles/compton/compton.config ~/.config/compton.config
 #TODO: zsh
 #TODO: global git
 
