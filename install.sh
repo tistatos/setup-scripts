@@ -15,6 +15,7 @@ sudo apt-get install -y \
 	firefox \
 	gdb \
 	git \
+	gitk \
 	i3-wm \
 	neovim \
 	nodejs \
@@ -24,6 +25,7 @@ sudo apt-get install -y \
 	ranger \
 	rofi \
 	thunar \
+	tig \
 	xfce4-volumed \
 	zsh \
 
