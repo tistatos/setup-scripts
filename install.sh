@@ -17,13 +17,20 @@ sudo apt-get install -y \
 	git \
 	gitk \
 	i3-wm \
+	meld \
 	neovim \
 	nodejs \
+	notify-osd \
 	npm \
+	qalc \
 	python3.7 \
 	python2.7 \
+	python-pip \
+	python3-pip \
 	ranger \
 	rofi \
+	silversearcher-ag \
+	spotify-client \
 	thunar \
 	tig \
 	xfce4-volumed \
