@@ -40,7 +40,8 @@ sudo apt-get install -y \
 #TODO: sleep/hibernate mode
 #TODO: sleep mode
 
-
+#fix icons for thunar
+echo "gtk-icon-theme-name=\"gnome\"" >> ~/.gtkrc-2.0
 #install rust
 curl https://sh.rustup.rs -sSf | sh
 
