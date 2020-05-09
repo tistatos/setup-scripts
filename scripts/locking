@@ -1,0 +1,19 @@
+#bin/sh
+
+scrot /tmp/screen.png
+
+convert /tmp/screen.png -scale 20% -scale 500% -blur 5 /tmp/screen2.png
+convert /tmp/screen2.png -fill white -strokewidth 1  -stroke black -pointsize 50 -draw 'text 100,940 "Erik Sandrén" ' -draw 'text 100,990 "0725-750993"' -draw 'text 100,1040 erik@hackerman.se' /tmp/screen2.png
+i3lock -i /tmp/screen2.png
+
+sleep 15;
+if pgrep i3lock > /dev/null
+  then
+    xset dpms force off;
+fi
+
+sleep 60;
+if pgrep i3lock > /dev/null
+  then
+    sudo pm-suspend
+fi
