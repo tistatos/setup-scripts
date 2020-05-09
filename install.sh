@@ -65,6 +65,11 @@ curl -sSL https://get.rvm.io | bash -s stable --rails
 #install vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+#vim install
+pip3 install setuptools
+pip3 install neovim
+pip install setuptools
+pip install neovim
 #ycm install
 #TODO
 
