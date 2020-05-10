@@ -105,6 +105,9 @@ fi
 
 if [ $symlink -eq $YES ]; then
 	echo "symlinking..."
+
+	ln -s $PWD/dotfiles/.gtkrc-2.0 ~/
+
 	# TODO: fix the plugins for zsh
 	# TODO: config files for zsh and oh my shell
 	# TODO: zsh config file
