@@ -8,6 +8,7 @@ this script is meant to speed up the setup of a new machine.
  - [ ] Ycm install?
  - [ ] i3blocks?
  - [ ] Add ssh config file
+ - [ ] global ignore file for ag
 
 ### To Research
 colors for shell
