@@ -111,6 +111,10 @@ if [ $symlink -eq $YES ]; then
 
 	# fix icons for thunar
 	echo "gtk-icon-theme-name=\"gnome\"" >> ~/.gtkrc-2.0
+	# scripts
+	mkdir -p ~/.config/scripts
+	ln -s $PWD/scripts/locking ~/.config/scripts
+	ln -s $PWD/scripts/screendetect ~/.config/scripts
 
 	# i3
 	mkdir -p ~/.i3

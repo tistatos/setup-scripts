@@ -124,12 +124,11 @@ bindsym $mod+Shift+F11 exec "gnome-screenshot -w"
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 #lock screen
-bindsym $mod+Shift+w exec "~/scripts/locking"
+bindsym $mod+Shift+w exec "~/.config/scripts/locking"
 
 bindsym $mod+F5 exec "xbacklight -5"
 bindsym $mod+F6 exec "xbacklight +5"
-bindsym $mod+F7 exec "~/scripts/screendetect"
-bindsym $mod+Shift+F9 exec "~/scripts/touchpadswitch.sh"
+bindsym $mod+F7 exec "~/.config/scripts/screendetect"
 bindsym $mod+F12 exec "thunar"
 
 # resize window (you can also use the mouse for that)

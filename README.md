@@ -6,7 +6,6 @@ this script is meant to speed up the setup of a new machine.
  - [ ] Add scripts from laptop
  - [ ] Golang install
  - [ ] Install playerctl for media control
- - [ ] Install scripts in correct directory
  - [ ] Ycm install?
  - [ ] i3blocks?
  - [ ] Add ssh config file
