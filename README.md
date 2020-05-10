@@ -11,6 +11,7 @@ this script is meant to speed up the setup of a new machine.
  - [ ] Use rofi for runner
  - [ ] Ycm install?
  - [ ] i3blocks?
+ - [ ] Add ssh config file
 
 ### To Research
 colors for shell
