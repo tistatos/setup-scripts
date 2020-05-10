@@ -171,11 +171,35 @@ exec xautolock -time 15 -locker '/home/tistatos/scripts/locking'
 exec --no-startup-id barrier
 exec --no-startup-id compton
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+set $inactive #1D2028
+set $background #282C33
+set $text #8ca0aa
+set $hitext #d3e5e7
+set $hilite #676d75
+set $hiborder #aabdc4
+set $border #282c33
+set $urgent #FFe4B0
+set $urgent2 #b39357
+
+# class										border				background		text				indicator		child_border
+client.focused						$hilite				$hilite				$hitext 		$hilite			$background
+client.focused_inactive		$background		$background		$text 			$background	$background
+client.unfocused					$background		$inactive			$text 			$background	$background
+client.urgent							$urgent		$urgent2			$urgent 				$background	$background
+
+
 bar {
-	#tray_output primary
 	status_command i3status
+	colors {
+		background $background
+		statusline $text
+		separator $text
+
+		# colorclass 				border 			background 	text
+		focused_workspace 	$hiborder		$hilite 		$hitext
+		inactive_workspace 	$border 		$inactive 	$text
+		urgent_workspace 		$urgent 		$urgent2 		$urgent
+	}
 }
 
 # Special window configs
