@@ -130,9 +130,9 @@ fi
 if [ $symlink -eq $YES ]; then
 	echo "symlinking..."
 
-	ln -s $PWD/dotfiles/.gtkrc-2.0 ~/
+	ln -s -f $PWD/dotfiles/.gtkrc-2.0 ~/
 
-	ln -s $PWD/dotfiles/zsh/.zshrc ~/
+	ln -s -f $PWD/dotfiles/zsh/.zshrc ~/
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
@@ -140,22 +140,22 @@ if [ $symlink -eq $YES ]; then
 	echo "gtk-icon-theme-name=\"gnome\"" >> ~/.gtkrc-2.0
 	# scripts
 	mkdir -p ~/.config/scripts
-	ln -s $PWD/scripts/locking ~/.config/scripts
-	ln -s $PWD/scripts/screendetect ~/.config/scripts
+	ln -s -f $PWD/scripts/locking ~/.config/scripts
+	ln -s -f $PWD/scripts/screendetect ~/.config/scripts
 
 	# i3
 	mkdir -p ~/.config/i3
-	ln -s $PWD/dotfiles/i3/config ~/.config/i3
-	ln -s $PWD/dotfiles/i3status/config ~/.config/i3status
+	ln -s -f $PWD/dotfiles/i3/config ~/.config/i3
+	ln -s -f $PWD/dotfiles/i3status/config ~/.config/i3status
 
 	# vim
-	ln -s $PWD/dotfiles/vim/.vimrc ~/.vimrc
+	ln -s -f $PWD/dotfiles/vim/.vimrc ~/.vimrc
 	mkdir -p ~/.config/nvim
-	ln -s $PWD/dotfiles/nvim/init.vim ~/.config/nvim
+	ln -s -f $PWD/dotfiles/nvim/init.vim ~/.config/nvim
 
 	mkdir -p ~/.config/rofi
-	ln -s $PWD/dotfiles/rofi/config ~/.config/rofi
-	ln -s $PWD/dotfiles/rofi/slate.rasi ~/.config/rofi
+	ln -s -f $PWD/dotfiles/rofi/config ~/.config/rofi
+	ln -s -f $PWD/dotfiles/rofi/slate.rasi ~/.config/rofi
 
 	# vim: install vundle
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -168,7 +168,7 @@ if [ $symlink -eq $YES ]; then
 	# TODO: add ycm and evaluate if ale is better?
 
 	# compton
-	ln -s $PWD/dotfiles/compton/compton.config ~/.config/compton.config
+	ln -s -f $PWD/dotfiles/compton/compton.config ~/.config/compton.config
 
 	# TODO: global config git
 fi
