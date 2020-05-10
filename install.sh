@@ -21,6 +21,11 @@ case $yn in
 	[Nn]* ) install=$NO;;
 esac
 
+read -p "Do you want to install python2 stuff?(Y/n) " yn
+case $yn in
+	[Yy]* ) python2=$YES; break;;
+	[Nn]* ) python2=$NO;;
+esac
 
 read -p "Do you want to symlink dotfiles to their directories?(Y/n) " yn
 case $yn in
@@ -67,8 +72,6 @@ if [ $install -eq $YES ]; then
 		npm \
 		qalc \
 		python3.7 \
-		python2.7 \
-		python-pip \
 		python3-pip \
 		ranger \
 		rofi \
@@ -87,6 +90,15 @@ if [ $install -eq $YES ]; then
 	# FIXME: can we always get the lastest some how?
 	wget https://github.com/altdesktop/playerctl/releases/download/v2.1.1/playerctl-2.1.1_amd64.deb
 	sudo dpkg -i playerctl-2.1.1_amd64.deb
+fi
+
+if [ $python2 -eq $YES ]; then
+	echo "installing python2 stuff..."
+	sudo apt-get install -y \
+		python2.7 \
+		python-pip
+	pip install setuptools
+	pip install neovim
 fi
 
 if [ $install_rust -eq $YES ]; then
@@ -144,8 +156,6 @@ if [ $symlink -eq $YES ]; then
 	# vim: install python binding
 	pip3 install setuptools
 	pip3 install neovim
-	pip install setuptools
-	pip install neovim
 
 	# ycm install
 	# TODO: add ycm and evaluate if ale is better?
