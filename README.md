@@ -2,7 +2,7 @@
 this script is meant to speed up the setup of a new machine.
 
 ### TODO:
- - [ ] Add i3status file
+ - [ ] Add i3status file for laptop
  - [ ] Add scripts from laptop
  - [ ] Golang install
  - [ ] Install playerctl for media control

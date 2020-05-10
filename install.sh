@@ -121,8 +121,6 @@ if [ $symlink -eq $YES ]; then
 	ln -s $PWD/dotfiles/i3/config ~/.config/i3
 	ln -s $PWD/dotfiles/i3status/config ~/.config/i3status
 
-	# TODO: i3status files
-
 	# vim
 	ln -s $PWD/dotfiles/vim/.vimrc ~/.vimrc
 	mkdir -p ~/.config/nvim
