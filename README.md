@@ -2,7 +2,6 @@
 this script is meant to speed up the setup of a new machine.
 
 ### TODO:
- - [ ] Add flags to install script
  - [ ] Add i3status file
  - [ ] Add scripts from laptop
  - [ ] Golang install
