@@ -145,8 +145,9 @@ if [ $symlink -eq $YES ]; then
 
 	# i3
 	mkdir -p ~/.config/i3
+	mkdir -p ~/.config/i3status
 	ln -s -f $PWD/dotfiles/i3/config ~/.config/i3
-	ln -s -f $PWD/dotfiles/i3status/config ~/.config/i3status
+	ln -s -f $PWD/dotfiles/i3status/config ~/.config/i3status/
 
 	# vim
 	ln -s -f $PWD/dotfiles/vim/.vimrc ~/.vimrc
