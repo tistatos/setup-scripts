@@ -113,9 +113,9 @@ if [ $symlink -eq $YES ]; then
 
 	ln -s $PWD/dotfiles/.gtkrc-2.0 ~/
 
-	# TODO: fix the plugins for zsh
-	# TODO: config files for zsh and oh my shell
-	# TODO: zsh config file
+	ln -s $PWD/dotfiles/zsh/.zshrc ~/
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 	# fix icons for thunar
 	echo "gtk-icon-theme-name=\"gnome\"" >> ~/.gtkrc-2.0

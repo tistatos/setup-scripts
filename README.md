@@ -11,4 +11,4 @@ this script is meant to speed up the setup of a new machine.
 
 ### To Research
 colors for shell
-plugins for zsh
+aliases
