@@ -82,6 +82,11 @@ if [ $install -eq $YES ]; then
 	# oh-my-zsh install
 	chsh -s/bin/zsh $USER
 	sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+	# playerctl install
+	# FIXME: can we always get the lastest some how?
+	wget https://github.com/altdesktop/playerctl/releases/download/v2.1.1/playerctl-2.1.1_amd64.deb
+	sudo dpkg -i playerctl-2.1.1_amd64.deb
 fi
 
 if [ $install_rust -eq $YES ]; then

@@ -5,7 +5,6 @@ this script is meant to speed up the setup of a new machine.
  - [ ] Add i3status file for laptop
  - [ ] Add scripts from laptop
  - [ ] Golang install
- - [ ] Install playerctl for media control
  - [ ] Ycm install?
  - [ ] i3blocks?
  - [ ] Add ssh config file
