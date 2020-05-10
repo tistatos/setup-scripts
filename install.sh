@@ -117,8 +117,10 @@ if [ $symlink -eq $YES ]; then
 	ln -s $PWD/scripts/screendetect ~/.config/scripts
 
 	# i3
-	mkdir -p ~/.i3
-	ln -s $PWD/dotfiles/i3/config ~/.i3/config
+	mkdir -p ~/.config/i3
+	ln -s $PWD/dotfiles/i3/config ~/.config/i3
+	ln -s $PWD/dotfiles/i3status/config ~/.config/i3status
+
 	# TODO: i3status files
 
 	# vim
