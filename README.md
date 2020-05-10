@@ -7,7 +7,6 @@ this script is meant to speed up the setup of a new machine.
  - [ ] Golang install
  - [ ] Install playerctl for media control
  - [ ] Install scripts in correct directory
- - [ ] Use rofi for runner
  - [ ] Ycm install?
  - [ ] i3blocks?
  - [ ] Add ssh config file

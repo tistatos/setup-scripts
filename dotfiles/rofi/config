@@ -1,0 +1,14 @@
+! "Enabled modi" Set from: Default
+rofi.modi:                           drun,run,ssh
+! "Font to use" Set from: Default
+rofi.font:                           Dejavu Sans 12
+! "Whether to load and show icons" Set from: Default
+rofi.show-icons:                     true
+! "Theme to use to look for icons" Set from: Default
+! rofi.drun-icon-theme:
+! "Set the modi to combine in combi mode" Set from: Default
+rofi.combi-modi:                     drun,run
+! "Set the matching algorithm. (normal, regex, glob, fuzzy)" Set from: Default
+ rofi.matching:                       fuzzy
+! "New style theme file" Set from: Default
+rofi.theme:                          ~/.config/rofi/slate.rasi

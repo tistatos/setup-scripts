@@ -122,6 +122,10 @@ if [ $symlink -eq $YES ]; then
 	mkdir -p ~/.config/nvim
 	ln -s $PWD/dotfiles/nvim/init.vim ~/.config/nvim
 
+	mkdir -p ~/.config/rofi
+	ln -s $PWD/dotfiles/rofi/config ~/.config/rofi
+	ln -s $PWD/dotfiles/rofi/slate.rasi ~/.config/rofi
+
 	# vim: install vundle
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
