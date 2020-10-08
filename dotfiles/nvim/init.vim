@@ -598,6 +598,7 @@ noremap <MiddleMouse> <Nop>
 map <MiddleMouse> <Nop>
 imap <MiddleMouse> <Nop>
 
+let g:rustfmt_autosave = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
