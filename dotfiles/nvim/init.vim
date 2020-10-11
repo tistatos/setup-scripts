@@ -37,25 +37,24 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 
 " autocomplete, python, go and C
-Plugin 'Valloric/YouCompleteMe' "<- FIXME: causes slow shutdown of vim atm
+Plugin 'Valloric/YouCompleteMe'
 
 " You complete me generator
 "Plugin 'rdnetto/YCM-Generator'
-
-" You complete me generator for windows
-"Plugin 'tux3/YcmGen'
 
 " Rainbow colored parantheses
 Plugin 'kien/rainbow_parentheses.vim'
 
 " Full path fuzzy
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " commenting tool
 Plugin 'scrooloose/nerdcommenter'
 
-" markdown plugin
+" lineup comments
 Plugin 'godlygeek/tabular'
+
+" markdown plugin
 Plugin 'plasticboy/vim-markdown'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 
@@ -90,7 +89,7 @@ Plugin 'kchmck/vim-coffee-script'
 " Rename files with :rename
 Plugin 'Rename'
 
-" editorconfig for vim FIXME: causes small window issue
+" editorconfig for vim
 Plugin 'editorconfig/editorconfig-vim'
 
 " tagbar, display tags of the current file by scope
@@ -123,16 +122,19 @@ Plugin 'tmhedberg/matchit'
 Plugin 'honza/vim-snippets'
 
 " Emojis
-"Plugin 'junegunn/vim-emoji'
+Plugin 'junegunn/vim-emoji'
 
 " rust
 Plugin 'rust-lang/rust.vim'
 
-" visual studio
-Plugin 'visual_studio.vim'
-
 " Linter
 "Plugin 'w0rp/ale'
+
+" clang format
+Plugin 'rhysd/vim-clang-format'
+
+" Improved syntax highlighting
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 " nerdtree
 Plugin 'scrooloose/nerdtree'
@@ -209,7 +211,7 @@ let g:ctrlp_custom_ignore = {
 	\   'dir' : '\.git$\|build$\|bower_components\|node_modules\|dist\|target\|HeadersAndLibs\|external' ,
 	\ 	'file' : '\v\.(exe|dll|lib)$'
 	\ }
-let g:ctrlp_extensions = ['line']
+let g:ctrlp_extensions = ['tag']
 
 if executable('ag')
 	"Use Ag over Grep
@@ -336,10 +338,10 @@ au Syntax * RainbowParenthesesLoadBraces
 au Syntax * RainbowParenthesesLoadChevrons
 
 " Use emojis for git
-"let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
-"let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
-"let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
-"let g:gitgutter_sign_modified_removed = emoji#for('collision')
+let g:gitgutter_sign_added = emoji#for('white_medium_small_square')
+let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
+let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
+let g:gitgutter_sign_modified_removed = emoji#for('collision')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -409,8 +411,10 @@ map <leader>ba :bufdo bd<cr>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
+map <leader>tk :tabp<cr>
+map <leader>tj :tabn<cr>
 map <leader>tm :tabmove
-map <leader>t<leader> :tabnext
+map <leader>t<leader> :tabnext<cr>
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
@@ -513,6 +517,8 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
+" Live substition
+set inccommand=nosplit
 
 " preview markdown
 let vim_markdown_preview_github=1
@@ -530,6 +536,8 @@ map <leader>g :Ag
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
+
+map <C-g> :%s//
 
 " Do :help cope if you are unsure what cope is. It's super useful!
 "
@@ -685,6 +693,8 @@ function! Commands()
 	echom "Present() - Increase font for presentation"
 	echom "PresentStop() - stop presentation"
 endfunction
+
+let g:rustfmt_autosave = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => autocommands
