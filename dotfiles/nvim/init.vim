@@ -22,125 +22,86 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " Setup python
-let g:python3_host_prog='/usr/bin/python3'
-let g:python_host_prog='/usr/bin/python2'
+let g:python3_host_prog='python3'
 
-" set the runtime path to include Vundle and initialize
-let &rtp = &rtp . ',' . '~/.vim/bundle/Vundle.vim'
+call plug#begin()
 
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Conquer of completion LSP server
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Lean mean status/tabline
-Plugin 'bling/vim-airline'
-
-" autocomplete, python, go and C
-Plugin 'Valloric/YouCompleteMe'
-
-" You complete me generator
-"Plugin 'rdnetto/YCM-Generator'
+Plug 'bling/vim-airline'
 
 " Rainbow colored parantheses
-Plugin 'kien/rainbow_parentheses.vim'
+Plug 'kien/rainbow_parentheses.vim'
 
 " Full path fuzzy
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " commenting tool
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 " lineup comments
-Plugin 'godlygeek/tabular'
-
-" markdown plugin
-Plugin 'plasticboy/vim-markdown'
-Plugin 'JamshedVesuna/vim-markdown-preview'
-
-" emmet for vim
-Plugin 'mattn/emmet-vim'
+Plug 'godlygeek/tabular'
 
 " surroundings
-Plugin 'tpope/vim-surround'
-
-" vim rails
-Plugin 'tpope/vim-rails'
-
-" JSHint
-Plugin 'Shutnik/jshint2.vim'
-
-" Doxygen comment Generator
-Plugin 'mrtazz/DoxygenToolkit.vim'
+Plug 'tpope/vim-surround'
 
 " CMake syntax highligthing
-Plugin 'vim-scripts/cmake.vim-syntax'
-Plugin 'jansenm/vim-cmake'
-
-" Less syntax highlite
-Plugin 'groenewege/vim-less'
+Plug 'vim-scripts/cmake.vim-syntax'
+Plug 'jansenm/vim-cmake'
 
 " syntax highlighting for everything
-Plugin 'scrooloose/syntastic'
-
-" syntax highlighting for everything
-Plugin 'kchmck/vim-coffee-script'
+Plug 'scrooloose/syntastic'
 
 " Rename files with :rename
-Plugin 'Rename'
+Plug 'qpkorr/vim-renamer'
 
 " editorconfig for vim
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 
 " tagbar, display tags of the current file by scope
-Plugin 'Tagbar'
+Plug 'preservim/tagbar'
+Plug 'tenfyzhong/tagbar-ext.vim'
 
 " GLSL syntax
-Plugin 'tikhomirov/vim-glsl'
+Plug 'tikhomirov/vim-glsl'
 
 " Ag search
-Plugin 'rking/ag.vim'
+Plug 'rking/ag.vim'
 
 "color schemes
-Plugin 'evgenyzinoviev/vim-vendetta' " vendetta
-Plugin 'tomasr/molokai' " molokai
-Plugin 'scheakur/vim-scheakur'
+"Plug 'evgenyzinoviev/vim-vendetta' " vendetta
+Plug 'tomasr/molokai' " molokai
+Plug 'scheakur/vim-scheakur'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 " Git wrapper
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Git Gutter
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 " ultisnips
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 " extension of % matchit
-Plugin 'tmhedberg/matchit'
+Plug 'tmhedberg/matchit'
 
 " Snippets
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 " Emojis
-Plugin 'junegunn/vim-emoji'
+Plug 'junegunn/vim-emoji'
 
 " rust
-Plugin 'rust-lang/rust.vim'
-
-" Linter
-"Plugin 'w0rp/ale'
-
-" clang format
-Plugin 'rhysd/vim-clang-format'
-
-" Improved syntax highlighting
-Plugin 'octol/vim-cpp-enhanced-highlight'
+Plug 'rust-lang/rust.vim'
 
 " nerdtree
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 
 " To ignore plugin indent changes, instead use:
@@ -209,7 +170,7 @@ endif
 " CTRLP ignores
 let g:ctrlp_custom_ignore = {
 	\   'dir' : '\.git$\|build$\|bower_components\|node_modules\|dist\|target\|HeadersAndLibs\|external' ,
-	\ 	'file' : '\v\.(exe|dll|lib)$'
+	\ 	'file' : '\v\.(exe|dll|lib)\|tags$'
 	\ }
 let g:ctrlp_extensions = ['tag']
 
@@ -300,6 +261,7 @@ if has("gui_running")
 	set guioptions-=e
 	set t_Co=256
 	set guitablabel=%M\ %t
+	set guiFont=Droid Sans Mono Dotted for Powerline:h15
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -315,7 +277,6 @@ match OverLength /\%81v.\+/
 
 let g:rbpt_colorpairs = [
 		\ ['brown',       'RoyalBlue3'],
-		\ ['Darkblue',    'SeaGreen3'],
 		\ ['darkgray',    'DarkOrchid3'],
 		\ ['darkgreen',   'firebrick3'],
 		\ ['darkcyan',    'RoyalBlue3'],
@@ -324,7 +285,6 @@ let g:rbpt_colorpairs = [
 		\ ['brown',       'firebrick3'],
 		\ ['gray',        'RoyalBlue3'],
 		\ ['darkmagenta', 'DarkOrchid3'],
-		\ ['Darkblue',    'firebrick3'],
 		\ ['darkgreen',   'RoyalBlue3'],
 		\ ['darkcyan',    'SeaGreen3'],
 		\ ['darkred',     'DarkOrchid3'],
@@ -365,7 +325,7 @@ set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
-set tw=80
+set tw=100
 
 set ai "Auto indent
 set si "Smart indent
@@ -451,35 +411,46 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 """"""""""""""""""""""""""""""
-" => You Complete Me
+" => Conquer of completion
 """"""""""""""""""""""""""""""
-" Default file for  YCM TODO: fix a general cpp file
-" let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_global_conf.py"
-"let g:ycm_confirm_extra_conf = 0
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-map <leader><F12> :YcmCompleter GoToDefinition<cr>
-map <leader><F10> :YcmCompleter GoToDeclaration<cr>
-map <leader>f :YcmCompleter FixIt<cr>
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+""""""""""""""""""""""""""""""
+" => Ultisnip settings
+""""""""""""""""""""""""""""""
 let g:UltiSnipsExpandTrigger="<c-b>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-""""""""""""""""""""""""""""""
-" => ALE
-""""""""""""""""""""""""""""""
-let g:ale_c_parse_compile_commands = 1
+let g:snips_author="eriks"
 
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
-
-" Format the status line not used - using airline
-" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 let g:airline_powerline_fonts = 1
 
@@ -702,8 +673,8 @@ let g:rustfmt_autosave = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " make overlength work in splits as well
-autocmd VimEnter,WinEnter * match OverLength /\%>80v.\+/
+autocmd VimEnter,WinEnter * match OverLength /\%>100v.\+/
 
 "remove trailing empty rows and white spaces
-au BufWritePre *.* :mark a | $put _ | $;?\(^\s*$\)\@!?+1,$d | :'a
-au BufWritePre * :%s/\s\+$//e
+"au BufWritePre *.* :mark a | $put _ | $;?\(^\s*$\)\@!?+1,$d | :'a
+"au BufWritePre * :%s/\s\+$//e
