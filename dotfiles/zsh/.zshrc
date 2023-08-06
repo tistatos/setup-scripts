@@ -101,3 +101,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias godnatt="shutdown -h 0"
+alias sov="systemctl suspend"

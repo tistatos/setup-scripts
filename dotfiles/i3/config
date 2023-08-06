@@ -11,6 +11,8 @@
 
 set $mod Mod4
 
+tiling_drag modifier
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -122,8 +124,8 @@ bindsym $mod+space scratchpad show
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-bindsym $mod+F11 exec "gnome-screenshot -i"
-bindsym $mod+Shift+F11 exec "gnome-screenshot -w"
+bindsym $mod+F11 exec "xfce4-screenshooter -r -c"
+bindsym $mod+Shift+F11 exec "xfce4-screenshooter -w -c"
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 #lock screen
@@ -162,16 +164,16 @@ bindsym $mod+F9 exec "export XDG_CURRENT_DESKTOP=GNOME; gnome-control-center"
 bindsym $mod+F10 exec "zenity --calendar"
 
 bindsym $mod+r mode "resize"
-bindsym $mod+o exec "subl"
 bindsym $mod+i exec "firefox"
-# exec --no-startup-id mate-bluetooth-applet
-exec --no-startup-id xfce4-volumed
-#exec --no-startup-id gnome-settings-daemon
+
+exec --no-startup-id xfce4-clipman
+exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
-exec xautolock -time 15 -locker '/home/tistatos/scripts/locking'
 exec --no-startup-id barrier
-exec --no-startup-id compton
+exec --no-startup-id picom -b
+
+# set screen layout
+exec '/home/tistatos/.screenlayout/default.sh'
 
 set $inactive #1D2028
 set $background #282C33
@@ -192,6 +194,7 @@ client.urgent							$urgent		$urgent2			$urgent 				$background	$background
 
 bar {
 	status_command i3status
+	tray_output HDMI-0
 	colors {
 		background $background
 		statusline $hitext

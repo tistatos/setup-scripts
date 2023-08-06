@@ -161,9 +161,6 @@ if [ $symlink -eq $YES ]; then
 	pip3 install setuptools
 	pip3 install neovim
 
-	# ycm install
-	# TODO: add ycm and evaluate if ale is better?
-
 	# compton
 	ln -s -f $PWD/dotfiles/compton/compton.config ~/.config/compton.config
 
